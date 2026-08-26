@@ -7,7 +7,7 @@ export const profile = {
   bcsLine: 'Professional Member (MBCS) of BCS, The Chartered Institute for IT',
   domain: 'www.yogeshmistry.com',
   tagline: 'Practical AI and automation for small businesses.',
-  role: 'AI Generalist & Automation Consultant',
+  role: 'AI Generalist · AI Adoption, Automation & Implementation',
   subtitle:
     'Agentic workflows · Prompt engineering · RAG · Business automation — applied, not just discussed',
   location: 'London, UK',

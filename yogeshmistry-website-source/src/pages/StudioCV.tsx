@@ -39,6 +39,28 @@ const projectSections = [
   },
 ] as const
 
+const projectDocumentHrefs: Record<string, string> = {
+  'AI Job Search & Application System': '/assets/ai-job-hunt-system-portfolio.pdf',
+  'UK AI & Technology Intelligence System': '/assets/ai-tech-briefing-system-portfolio.pdf',
+}
+
+function getProjectLinkProps(projectName: string) {
+  const documentHref = projectDocumentHrefs[projectName]
+
+  if (documentHref) {
+    return {
+      href: documentHref,
+      target: '_blank' as const,
+      rel: 'noopener noreferrer',
+      'aria-label': `Open ${projectName} portfolio PDF in a new tab`,
+    }
+  }
+
+  return {
+    href: `mailto:${profile.email}?subject=${encodeURIComponent(`Tell me about: ${projectName}`)}`,
+  }
+}
+
 export default function StudioCV() {
   const heroRef = useRef<HTMLDivElement>(null)
   const shouldReduceMotion = useReducedMotion()
@@ -259,7 +281,7 @@ export default function StudioCV() {
                     {sectionProjects.map((project, i) => (
                       <motion.a
                         key={project.name}
-                        href={`mailto:${profile.email}?subject=${encodeURIComponent(`Tell me about: ${project.name}`)}`}
+                        {...getProjectLinkProps(project.name)}
                         {...reveal}
                         transition={{ ...fadeUp.transition, delay: i * 0.05 }}
                         className="group grid md:grid-cols-[64px_1fr_auto] gap-4 md:gap-10 items-start py-10 border-t border-black/10 hover:bg-white rounded-2xl md:px-8 md:-mx-8 transition-colors"
