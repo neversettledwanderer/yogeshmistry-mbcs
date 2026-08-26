@@ -42,6 +42,7 @@ const projectSections = [
 const projectDocumentHrefs: Record<string, string> = {
   'AI Job Search & Application System': '/assets/ai-job-hunt-system-portfolio.pdf',
   'UK AI & Technology Intelligence System': '/assets/ai-tech-briefing-system-portfolio.pdf',
+  'AI Variance Reporting Toolkit': '/assets/ai-variance-toolkit-portfolio.pdf',
 }
 
 function getProjectLinkProps(projectName: string) {
