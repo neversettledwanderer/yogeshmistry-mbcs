@@ -11,6 +11,7 @@ import {
   certifications,
   pipeline,
 } from '../data/cv'
+import { enquiryFormUrls } from '../data/enquiryForms'
 
 const ease = [0.22, 1, 0.36, 1] as const
 
@@ -69,8 +70,6 @@ export default function StudioCV() {
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] })
   const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '22%'])
   const heroScale = useTransform(scrollYProgress, [0, 1], [1, 1.08])
-  const enquiryHref = `mailto:${profile.email}?subject=${encodeURIComponent('AI opportunity conversation')}&body=${encodeURIComponent('Business or team:\n\nThe process or opportunity I would like to discuss:\n\nWhat I would like to improve:\n')}`
-
   return (
     <div className="min-h-screen bg-[#f7f5f1] text-[#1a1a1a] antialiased" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
       {/* ── Nav ── */}
@@ -85,7 +84,10 @@ export default function StudioCV() {
             <a href="#work" className="hidden sm:inline text-neutral-500 hover:text-black transition-colors">Work</a>
             <a href="#about" className="hidden sm:inline text-neutral-500 hover:text-black transition-colors">About</a>
             <a
-              href={enquiryHref}
+              href={enquiryFormUrls.collaborationOther}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Discuss a project using the enquiry form (opens in a new tab)"
               className="px-4 py-2 rounded-full bg-[#1a1a1a] text-white hover:bg-[#e8763a] transition-colors"
             >
               Discuss a project
@@ -136,7 +138,10 @@ export default function StudioCV() {
               Explore my work
             </a>
             <a
-              href={enquiryHref}
+              href={enquiryFormUrls.generalAiEmergingTech}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Discuss a business problem using the enquiry form (opens in a new tab)"
               className="px-7 py-3.5 rounded-full border border-black/15 font-medium hover:border-[#e8763a] hover:text-[#e8763a] transition-colors"
             >
               Discuss a business problem
@@ -232,7 +237,10 @@ export default function StudioCV() {
                 </ul>
                 <p className="text-sm text-neutral-400 leading-relaxed mb-7">{offer.outcome}</p>
                 <a
-                  href={`mailto:${profile.email}?subject=${encodeURIComponent(offer.name)}&body=${encodeURIComponent('Business or team:\n\nThe process or opportunity I would like to discuss:\n\nWhat I would like to improve:\n')}`}
+                  href={offer.enquiryUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${offer.cta} using the enquiry form (opens in a new tab)`}
                   className="mt-auto inline-flex items-center justify-between gap-4 font-medium text-white hover:text-[#e8763a] transition-colors"
                 >
                   {offer.cta} <span aria-hidden="true">↗</span>
@@ -405,18 +413,21 @@ export default function StudioCV() {
       <footer className="px-6 pb-16">
         <div className="max-w-6xl mx-auto rounded-[2.5rem] bg-gradient-to-br from-[#ffe9d6] via-[#fdf3ea] to-[#e8f1f8] p-12 md:p-20 text-center">
           <motion.h2 {...reveal} className="text-4xl md:text-6xl font-semibold tracking-tight mb-6">
-            Have a process that's<br />costing you time<span className="text-[#e8763a]">?</span>
+            Ready to make AI useful<br />for your team<span className="text-[#e8763a]">?</span>
           </motion.h2>
           <motion.p {...reveal} className="text-neutral-600 max-w-md mx-auto mb-10 text-lg">
-            Tell me what is repetitive, disconnected, or difficult to scale. I’ll help
-            you work out whether AI, automation, or a simpler process is the right answer.
+            Explore practical use cases, focused training, and safe ways for your team
+            to adopt AI with clear guidance, confidence, and human oversight.
           </motion.p>
           <motion.div {...reveal} className="flex flex-wrap justify-center gap-4">
             <a
-              href={enquiryHref}
+              href={enquiryFormUrls.aiAdoptionEnablement}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Discuss AI adoption using the enquiry form (opens in a new tab)"
               className="px-8 py-4 rounded-full bg-[#1a1a1a] text-white font-medium hover:bg-[#e8763a] transition-colors"
             >
-              Tell me about the workflow
+              Discuss AI adoption
             </a>
             <a
               href={profile.socials[0].url}

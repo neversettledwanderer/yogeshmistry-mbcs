@@ -1,3 +1,5 @@
+import { enquiryFormUrls } from './enquiryForms'
+
 // ─── CV data — personalised from updated CV + positioning interview ───
 
 export const profile = {
@@ -59,6 +61,7 @@ export const offers = [
     ],
     outcome: 'A clear decision on what to test, what to defer, and why.',
     cta: 'Discuss an opportunity review',
+    enquiryUrl: enquiryFormUrls.aiOpportunityAssessment,
   },
   {
     number: '02',
@@ -71,6 +74,7 @@ export const offers = [
     ],
     outcome: 'A working, understandable workflow—not another slide deck.',
     cta: 'Show me the workflow',
+    enquiryUrl: enquiryFormUrls.workflowAutomation,
   },
   {
     number: '03',
@@ -83,6 +87,7 @@ export const offers = [
     ],
     outcome: 'A testable prototype and an evidence-based build, change, or stop decision.',
     cta: 'Discuss a prototype',
+    enquiryUrl: enquiryFormUrls.aiPrototypeImplementation,
   },
 ]
 
