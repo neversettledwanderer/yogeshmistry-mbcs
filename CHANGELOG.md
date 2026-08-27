@@ -2,6 +2,21 @@
 
 All notable changes to this website are documented in this file.
 
+## 2026-08-28
+
+### Added
+
+- Added evidence-led portfolio PDFs for Lustre, OMS Core, and the Notion × ClickUp integration.
+
+### Changed
+
+- Replaced the email fallback on those three project cards with direct PDF links that open in a new tab.
+- Published the new documents through the website's existing project-to-document mapping and public assets convention.
+
+### Preserved
+
+- Kept email fallbacks for projects that do not yet have a mapped portfolio document.
+
 ## 2026-08-27
 
 ### Changed

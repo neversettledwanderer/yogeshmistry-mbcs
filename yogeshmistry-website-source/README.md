@@ -53,6 +53,20 @@ The production page and its information architecture live in:
 src/pages/StudioCV.tsx
 ```
 
+## Project portfolio documents
+
+Project cards use the central `projectDocumentHrefs` map in `src/pages/StudioCV.tsx`.
+When a project has a mapped PDF, its card opens the document in a new tab. Projects
+without a mapped document retain the email fallback.
+
+Source PDFs are stored in:
+
+```text
+public/assets/
+```
+
+The production build copies them into the deployed root `assets/` directory.
+
 ## Deployment
 
 Build the source project:
