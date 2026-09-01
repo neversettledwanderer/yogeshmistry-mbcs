@@ -33,6 +33,11 @@ npm run build
 npm run lint
 ```
 
+The HTML contains an enforcing CSP meta policy. Production must also return CSP
+and HSTS as HTTP response headers; see [`SECURITY.md`](SECURITY.md) for the
+required values, current GitHub Pages limitation, rollout cautions, and
+verification commands.
+
 The source archive originally included design-exploration pages and generated UI components that are not part of the production page. The production TypeScript build is intentionally scoped to `StudioCV` and its data dependencies. Run focused linting on the production surface with:
 
 ```bash
