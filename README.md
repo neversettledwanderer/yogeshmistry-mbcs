@@ -100,3 +100,7 @@ Review the generated page locally before committing or publishing.
 - Live systems, prototypes, and research labelled separately.
 - No invented clients, testimonials, or outcomes.
 - Essential hero content remains visible without an entrance-animation delay.
+
+## Privacy Notice
+
+`src/pages/PrivacyNotice.tsx` contains the notice. The app serves it at `/privacy` and `/privacy/`; the build also creates `dist/privacy/index.html` for direct GitHub Pages access. Copy `dist/privacy/` to repository-root `privacy/` alongside the usual deployment files. The homepage footer links to the notice. Privacy requests use `privacy@yogeshmistry.com` (iCloud Mail, forwarded to Gmail). Review the notice whenever providers, collection or retention practices change.

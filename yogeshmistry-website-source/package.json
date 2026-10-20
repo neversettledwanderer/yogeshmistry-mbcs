@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint src/App.tsx src/main.tsx src/pages/StudioCV.tsx src/data/cv.ts",
+    "build": "tsc -b && vite build && node scripts/build-privacy.mjs",
+    "lint": "eslint src/App.tsx src/main.tsx src/pages/StudioCV.tsx src/pages/PrivacyNotice.tsx src/data/cv.ts",
     "preview": "vite preview"
   },
   "dependencies": {

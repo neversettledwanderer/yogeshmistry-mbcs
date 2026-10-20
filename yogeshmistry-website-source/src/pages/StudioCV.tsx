@@ -444,6 +444,7 @@ export default function StudioCV() {
           <p className="mt-14 text-xs text-neutral-500">
             © {new Date().getFullYear()} {profile.name} ({profile.credential}) — {profile.domain}
           </p>
+          <a href="/privacy" className="inline-block mt-4 p-2 text-sm text-neutral-700 underline underline-offset-4 focus-visible:outline focus-visible:outline-2">Privacy Notice</a>
         </div>
       </footer>
     </div>
