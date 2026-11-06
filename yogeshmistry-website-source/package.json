@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && node scripts/build-privacy.mjs",
-    "lint": "eslint src/App.tsx src/main.tsx src/pages/StudioCV.tsx src/pages/PrivacyNotice.tsx src/data/cv.ts",
+    "build": "tsc -b && vite build && node scripts/build-privacy.mjs && vite build --ssr src/render-services.tsx --outDir .cache/services-render --emptyOutDir && node scripts/build-services.mjs",
+    "lint": "eslint src/App.tsx src/main.tsx src/pages/StudioCV.tsx src/pages/PrivacyNotice.tsx src/data/cv.ts src/data/enquiryForms.ts src/data/services.ts src/pages/ServicesPricing.tsx src/components/ServiceEnquiry.tsx src/render-services.tsx",
     "preview": "vite preview"
   },
   "dependencies": {

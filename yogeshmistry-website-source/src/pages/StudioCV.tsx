@@ -2,7 +2,6 @@ import { useRef } from 'react'
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import {
   clientProblems,
-  offers,
   profile,
   projects,
   stats,
@@ -11,7 +10,8 @@ import {
   certifications,
   pipeline,
 } from '../data/cv'
-import { enquiryFormUrls } from '../data/enquiryForms'
+import { serviceTiers } from '../data/services'
+import ServiceEnquiry from '../components/ServiceEnquiry'
 
 const ease = [0.22, 1, 0.36, 1] as const
 
@@ -76,24 +76,21 @@ export default function StudioCV() {
   return (
     <div className="min-h-screen bg-[#f7f5f1] text-[#1a1a1a] antialiased" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
       {/* ── Nav ── */}
-      <nav className="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-[#f7f5f1]/70 border-b border-black/5">
-        <div className="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
+      <nav aria-label="Main navigation" className="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-[#f7f5f1]/70 border-b border-black/5">
+        <div className="max-w-6xl mx-auto flex flex-wrap sm:flex-nowrap justify-between items-center px-4 sm:px-6 py-2 sm:py-4">
           <span className="font-semibold tracking-tight text-lg">
             Yogesh Mistry<span className="text-[#e8763a]">.</span>
           </span>
-          <div className="flex items-center gap-6 text-sm">
+          <div className="flex w-full flex-wrap sm:w-auto items-center gap-x-3 sm:gap-x-6 text-xs sm:text-sm">
             <a href="#problems" className="hidden md:inline text-neutral-500 hover:text-black transition-colors">Problems</a>
-            <a href="#services" className="hidden sm:inline text-neutral-500 hover:text-black transition-colors">Services</a>
-            <a href="#work" className="hidden sm:inline text-neutral-500 hover:text-black transition-colors">Work</a>
-            <a href="#about" className="hidden sm:inline text-neutral-500 hover:text-black transition-colors">About</a>
+            <a href="/services/" className="inline-flex items-center min-h-11 text-neutral-700 hover:text-black">Services &amp; Pricing</a>
+            <a href="#work" className="inline-flex items-center min-h-11 text-neutral-700 hover:text-black">Work</a>
+            <a href="#about" className="inline-flex items-center min-h-11 text-neutral-700 hover:text-black">About</a>
             <a
-              href={enquiryFormUrls.collaborationOther}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Discuss a project using the enquiry form (opens in a new tab)"
-              className="px-4 py-2 rounded-full bg-[#1a1a1a] text-white hover:bg-[#e8763a] transition-colors"
+              href="#enquire"
+              className="inline-flex items-center min-h-11 px-3 rounded-full bg-[#1a1a1a] text-white"
             >
-              Discuss a project
+              Enquire
             </a>
           </div>
         </div>
@@ -126,28 +123,25 @@ export default function StudioCV() {
             initial={false}
             className="mt-8 max-w-xl text-lg text-neutral-600 leading-relaxed"
           >
-            I help UK small businesses identify useful AI opportunities, automate
-            high-friction workflows, and test practical AI products — with human
-            oversight, clear documentation, and measurable outcomes.
+            I help individuals and UK small businesses get started with AI, identify useful
+            opportunities, automate workflows, and test practical AI products. Focused
+            sessions start at £39.
           </motion.p>
           <motion.div
             initial={false}
             className="mt-10 flex flex-wrap gap-4"
           >
             <a
-              href="#work"
+              href="/services/"
               className="px-7 py-3.5 rounded-full bg-[#1a1a1a] text-white font-medium hover:bg-[#e8763a] transition-colors"
             >
-              Explore my work
+              View services &amp; pricing
             </a>
             <a
-              href={enquiryFormUrls.generalAiEmergingTech}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Discuss a business problem using the enquiry form (opens in a new tab)"
+              href="#work"
               className="px-7 py-3.5 rounded-full border border-black/15 font-medium hover:border-[#e8763a] hover:text-[#e8763a] transition-colors"
             >
-              Discuss a business problem
+              Explore my work
             </a>
           </motion.div>
         </div>
@@ -208,45 +202,34 @@ export default function StudioCV() {
       </section>
 
       {/* ── Packaged offers ── */}
-      <section id="services" className="px-6 py-24 md:py-32 bg-[#1a1a1a] text-white rounded-[2.5rem] mx-3 md:mx-6">
+      <section id="services" className="scroll-mt-28 px-6 py-24 md:py-32 bg-[#1a1a1a] text-white rounded-[2.5rem] mx-3 md:mx-6">
         <div className="max-w-6xl mx-auto">
           <motion.h2 {...reveal} className="text-4xl md:text-6xl font-semibold tracking-tight mb-4">
             Three practical ways<br className="hidden md:block" />
             <span className="text-neutral-400">I can help.</span>
           </motion.h2>
           <motion.p {...reveal} className="text-neutral-400 max-w-2xl text-lg mb-14">
-            Clear starting points for exploring an opportunity, improving a workflow,
-            or testing an idea—adapted to the problem rather than a predetermined tool.
+            Start with a focused session, get advice for your business, or scope a workflow or prototype.
           </motion.p>
 
           <div className="grid lg:grid-cols-3 gap-4">
-            {offers.map((offer, i) => (
+            {serviceTiers.map((tier, index) => (
               <motion.article
-                key={offer.name}
+                key={tier.id}
                 {...reveal}
-                transition={{ ...fadeUp.transition, delay: i * 0.08 }}
                 className="rounded-2xl border border-white/10 bg-white/[0.04] p-7 md:p-8 flex flex-col"
               >
-                <span className="text-sm font-medium text-[#e8763a]">{offer.number}</span>
-                <h3 className="text-2xl font-semibold mt-7 mb-3 tracking-tight">{offer.name}</h3>
-                <p className="text-neutral-400 leading-relaxed min-h-[5rem]">{offer.forWho}</p>
-                <ul className="space-y-3 my-7 border-y border-white/10 py-6">
-                  {offer.deliverables.map((item) => (
-                    <li key={item} className="text-neutral-300 flex items-start gap-3">
-                      <span className="text-[#e8763a] mt-0.5">✓</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <p className="text-sm text-neutral-400 leading-relaxed mb-7">{offer.outcome}</p>
-                <a
-                  href={offer.enquiryUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`${offer.cta} using the enquiry form (opens in a new tab)`}
-                  className="mt-auto inline-flex items-center justify-between gap-4 font-medium text-white hover:text-[#e8763a] transition-colors"
-                >
-                  {offer.cta} <span aria-hidden="true">↗</span>
+                <div className="flex items-center gap-4 mb-6">
+                  <img src={tier.icon} alt="" width="96" height="96" className="rounded-2xl" loading="lazy" />
+                  <div>
+                    <p className="text-sm text-[#e8763a]">0{index + 1}</p>
+                    <p className="font-semibold">{tier.price}</p>
+                  </div>
+                </div>
+                <h3 className="text-2xl font-semibold mb-3 tracking-tight">{tier.name}</h3>
+                <p className="text-neutral-400 leading-relaxed mb-5">{tier.summary}</p>
+                <a href={`/services/#${tier.id}`} className="mt-auto inline-flex items-center gap-2 min-h-11 font-medium hover:text-[#e8763a]">
+                  View services <span className="sr-only">in {tier.name}</span><span aria-hidden="true">↗</span>
                 </a>
               </motion.article>
             ))}
@@ -267,7 +250,7 @@ export default function StudioCV() {
       </section>
 
       {/* ── Selected work ── */}
-      <section id="work" className="px-6 py-24 md:py-32">
+      <section id="work" className="scroll-mt-28 px-6 py-24 md:py-32">
         <div className="max-w-6xl mx-auto">
           <motion.h2 {...reveal} className="text-4xl md:text-6xl font-semibold tracking-tight mb-4">
             Selected builds<span className="text-[#e8763a]">.</span>
@@ -340,7 +323,7 @@ export default function StudioCV() {
       </section>
 
       {/* ── About / journey ── */}
-      <section id="about" className="px-6 py-24 md:py-32">
+      <section id="about" className="scroll-mt-28 px-6 py-24 md:py-32">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
           <div>
             <motion.h2 {...reveal} className="text-4xl md:text-5xl font-semibold tracking-tight mb-8">
@@ -413,38 +396,17 @@ export default function StudioCV() {
       </section>
 
       {/* ── CTA / footer ── */}
-      <footer className="px-6 pb-16">
+      <footer id="enquire" className="px-6 pb-16 scroll-mt-28">
         <div className="max-w-6xl mx-auto rounded-[2.5rem] bg-gradient-to-br from-[#ffe9d6] via-[#fdf3ea] to-[#e8f1f8] p-12 md:p-20 text-center">
           <motion.h2 {...reveal} className="text-4xl md:text-6xl font-semibold tracking-tight mb-6">
-            Ready to make AI useful<br />for your team<span className="text-[#e8763a]">?</span>
+            Ready to make AI useful<span className="text-[#e8763a]">?</span>
           </motion.h2>
-          <motion.p {...reveal} className="text-neutral-600 max-w-md mx-auto mb-10 text-lg">
-            Explore practical use cases, focused training, and safe ways for your team
-            to adopt AI with clear guidance, confidence, and human oversight.
-          </motion.p>
-          <motion.div {...reveal} className="flex flex-wrap justify-center gap-4">
-            <a
-              href={enquiryFormUrls.aiAdoptionEnablement}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Discuss AI adoption using the enquiry form (opens in a new tab)"
-              className="px-8 py-4 rounded-full bg-[#1a1a1a] text-white font-medium hover:bg-[#e8763a] transition-colors"
-            >
-              Discuss AI adoption
-            </a>
-            <a
-              href={profile.socials[0].url}
-              target="_blank"
-              rel="noreferrer"
-              className="px-8 py-4 rounded-full border border-black/15 font-medium hover:border-[#e8763a] hover:text-[#e8763a] transition-colors"
-            >
-              LinkedIn ↗
-            </a>
-          </motion.div>
+          <ServiceEnquiry />
+          <a href={profile.socials[0].url} target="_blank" rel="noreferrer" className="inline-block mt-4 p-2 underline underline-offset-4">LinkedIn ↗</a>
           <p className="mt-14 text-xs text-neutral-500">
             © {new Date().getFullYear()} {profile.name} ({profile.credential}) — {profile.domain}
           </p>
-          <a href="/privacy" className="inline-block mt-4 p-2 text-sm text-neutral-700 underline underline-offset-4 focus-visible:outline focus-visible:outline-2">Privacy Notice</a>
+          <a href="/privacy/" className="inline-block mt-4 p-2 text-sm text-neutral-700 underline underline-offset-4 focus-visible:outline focus-visible:outline-2">Privacy Notice</a>
         </div>
       </footer>
     </div>

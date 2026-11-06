@@ -5,7 +5,7 @@ Portfolio-led consulting website for **Yogesh Mistry MBCS**, an AI Generalist an
 The site keeps the portfolio as its proof layer while helping prospective clients understand:
 
 - the business problems Yogesh can help investigate;
-- three practical ways to begin an engagement;
+- seven services grouped into three tiers, with prices and scope at /services/;
 - which systems are live, in development, or research;
 - how to start a relevant conversation.
 
@@ -33,15 +33,11 @@ npm run build
 npm run lint
 ```
 
-The source archive originally included design-exploration pages and generated UI components that are not part of the production page. The production TypeScript build is intentionally scoped to `StudioCV` and its data dependencies. Run focused linting on the production surface with:
-
-```bash
-npx eslint src/App.tsx src/main.tsx src/pages/StudioCV.tsx src/data/cv.ts
-```
+The source archive originally included design-exploration pages and generated UI components that are not part of the production page. The TypeScript build and lint command cover the production pages and their supporting code.
 
 ## Content architecture
 
-Core profile, project, problem, offer, credential, and pipeline content lives in:
+Core profile, project, problem, credential, and pipeline content lives in:
 
 ```text
 src/data/cv.ts
@@ -52,6 +48,8 @@ The production page and its information architecture live in:
 ```text
 src/pages/StudioCV.tsx
 ```
+
+Service tier summaries and the full catalogue share `src/data/services.ts`.
 
 ## Project portfolio documents
 
@@ -80,6 +78,8 @@ GitHub Pages serves the repository root. Copy the generated deployment files int
 ```text
 dist/index.html       → ../index.html and ../404.html
 dist/assets/          → ../assets/
+dist/services/        → ../services/
+dist/sitemap.xml      → ../sitemap.xml
 dist/hero-abstract.png
 dist/mbcs-pin.jpg
 dist/CNAME

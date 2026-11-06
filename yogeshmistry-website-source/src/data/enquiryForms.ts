@@ -15,3 +15,6 @@ export const enquiryFormUrls = {
   aiAdoptionEnablement:
     'https://docs.google.com/forms/d/e/1FAIpQLSfjB_41Q-kRpdvtMnFbD1xHJ5Dx0a5kDVS4GAVSxWexIRi6uw/viewform?usp=pp_url&entry.1200054049=AI_ADOPTION_ENABLEMENT&entry.1778452696=WEBSITE_AI_ADOPTION',
 } as const
+
+export const serviceEnquiryUrl = 'https://forms.gle/UPFPcfC6JU4xMxQY8'
+export const whatsAppEnquiryUrl = 'https://wa.me/message/FX7OKUVIPUSQL1'

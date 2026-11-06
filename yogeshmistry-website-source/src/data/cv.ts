@@ -1,5 +1,3 @@
-import { enquiryFormUrls } from './enquiryForms'
-
 // ─── CV data — personalised from updated CV + positioning interview ───
 
 export const profile = {
@@ -46,48 +44,6 @@ export const clientProblems = [
     number: '03',
     title: 'You want to use AI, but need a sensible starting point',
     text: 'The opportunity is visible, but the right use case, risk controls, cost, and first implementation step are still unclear.',
-  },
-]
-
-export const offers = [
-  {
-    number: '01',
-    name: 'AI Opportunity Review',
-    forWho: 'For teams that know AI could help but do not yet know where to begin.',
-    deliverables: [
-      'Current-workflow and pain-point review',
-      'Prioritised opportunity and risk map',
-      'Practical 90-day recommendation',
-    ],
-    outcome: 'A clear decision on what to test, what to defer, and why.',
-    cta: 'Discuss an opportunity review',
-    enquiryUrl: enquiryFormUrls.aiOpportunityAssessment,
-  },
-  {
-    number: '02',
-    name: 'Workflow Automation Sprint',
-    forWho: 'For a repetitive process that is costing time, creating errors, or delaying customers.',
-    deliverables: [
-      'Process map and success measures',
-      'Working automation with human controls',
-      'Testing, documentation, and handover',
-    ],
-    outcome: 'A working, understandable workflow—not another slide deck.',
-    cta: 'Show me the workflow',
-    enquiryUrl: enquiryFormUrls.workflowAutomation,
-  },
-  {
-    number: '03',
-    name: 'AI Prototype Sprint',
-    forWho: 'For a defined AI product or internal-tool idea that needs evidence before larger investment.',
-    deliverables: [
-      'Use-case definition and prototype',
-      'Evaluation criteria and test results',
-      'Governance notes and next-stage plan',
-    ],
-    outcome: 'A testable prototype and an evidence-based build, change, or stop decision.',
-    cta: 'Discuss a prototype',
-    enquiryUrl: enquiryFormUrls.aiPrototypeImplementation,
   },
 ]
 
